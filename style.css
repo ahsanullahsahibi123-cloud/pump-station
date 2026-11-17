@@ -18,6 +18,153 @@ body {
   overflow-x: hidden;
 }
 
+/* =========================
+   PROFESSIONAL LOADING SCREEN
+========================= */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 99999;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+}
+
+.loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  animation: loaderAppear 1s ease;
+}
+
+.loader-content img {
+  width: 125px;
+  height: 125px;
+  object-fit: contain;
+
+  margin-bottom: 25px;
+
+  animation: logoPulse 2s infinite ease-in-out;
+}
+
+.loader-spinner {
+  width: 45px;
+  height: 45px;
+
+  border: 4px solid #e5effb;
+  border-top: 4px solid #1458b8;
+
+  border-radius: 50%;
+
+  animation: spin 1s linear infinite;
+
+  margin-bottom: 22px;
+}
+
+.loader-content h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+
+  color: #071b3d;
+
+  letter-spacing: 3px;
+}
+
+.loader-content p {
+  font-size: 9px;
+  font-weight: 700;
+
+  color: #2878e5;
+
+  letter-spacing: 2px;
+
+  margin-top: 8px;
+}
+
+.loader-content span {
+  font-size: 9px;
+  font-weight: 700;
+
+  color: #8998aa;
+
+  letter-spacing: 3px;
+
+  margin-top: 28px;
+
+  animation: loadingText 1.5s infinite;
+}
+
+/* SPINNER ANIMATION */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* LOGO ANIMATION */
+
+@keyframes logoPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+/* APPEAR ANIMATION */
+
+@keyframes loaderAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* LOADING TEXT */
+
+@keyframes loadingText {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;
